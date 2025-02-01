@@ -1,0 +1,430 @@
+//1. rotate array 
+/*
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+void rotate(vector<int>& nums, int k){
+    
+    vector<int> temp( nums.size());
+    
+    for(int i=0; i<nums.size(); i++){
+        temp[(i+k)%nums.size()]=nums[i];
+    }
+    //copy temp into num vector 
+    nums = temp;
+}
+
+void print(vector<int> a){
+    for(int i=0; i<=a.size()-1; i++){
+        cout<<a[i]<<" ";
+    }cout<<endl;
+}
+
+int main()
+{
+    vector<int> a={1, 2, 3, 4, 5};
+    rotate(a, 2);
+    print(a);
+
+    return 0;
+}     */
+
+
+
+
+//2. chech if array is sorted and rotated
+/*
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+bool check(vector<int>& nums) {
+        int cnt = 0;
+        for(int i=1;i<nums.size();i++) 
+        {
+            if(nums[i] < nums[i-1])
+                cnt++;
+        }
+        if(nums[nums.size()-1] > nums[0])
+        { 
+            cnt++;
+        }        
+        return cnt<=1;
+}
+
+int main() {
+    vector<int> a1 = {3, 4, 5, 1, 2};
+    vector<int> a2 = {1, 2, 3, 4, 5};
+    vector<int> a3 = {2, 1, 3, 4, 5};
+    vector<int> a4 = {1, 3, 2, 4, 5};
+    
+    cout << "Array a1 is " << (check(a1) ? "sorted and rotated." : "not sorted and rotated.") << endl;
+    cout << "Array a2 is " << (check(a2) ? "sorted and rotated." : "not sorted and rotated.") << endl;
+    cout << "Array a3 is " << (check(a3) ? "sorted and rotated." : "not sorted and rotated.") << endl;
+    cout << "Array a4 is " << (check(a4) ? "sorted and rotated." : "not sorted and rotated.") << endl;
+    
+    return 0;
+
+}     */
+
+
+
+
+
+
+//3. check if array is sorted and rotated
+/*
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+vector<int> reverse(vector<int> v) {
+    
+    int s = 0;
+    int e = v.size()-1;
+    
+    while(s<e)
+    {
+        swap(v[s++], v[e--]);
+    }
+    return v;
+}
+
+vector<int> findArraySum(vector<int>&a, int n, vector<int>&b, int m) {
+	
+    int i = n-1;
+    int j = m-1;
+    vector<int> ans;
+    int carry = 0;
+    
+    while(i>=0 && j>=0) {
+        int val1 = a[i];
+        int val2 = b[j];
+            
+        int sum = val1 + val2 + carry;   
+        
+        carry = sum/10;
+        sum = sum%10;
+        ans.push_back(sum);
+        i--;
+        j--;
+    }
+    
+    // first case
+    while(i>=0) {
+        int sum = a[i] + carry;
+        carry = sum/10;
+        sum = sum%10;
+        ans.push_back(sum);
+        i--;
+    }
+    
+     // second case
+    while(j>=0) {
+        int sum = b[j] + carry;
+        carry = sum/10;
+        int value = sum%10;
+        ans.push_back(value);
+        j--;
+    }
+    
+     // second case
+    while(carry != 0) {
+        int sum = carry;
+        carry = sum/10;
+        sum = sum%10;
+        ans.push_back(sum);
+    }
+    
+    //print(ans);
+    return reverse(ans);
+}
+
+// Function to print a vector
+void print(const vector<int>& a) {
+    for (int i = 0; i < a.size(); i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    vector<int> a = {9, 9, 9, 9};
+    vector<int> b = {1};
+    
+    vector<int> sum = findArraySum(a, a.size(), b, b.size());
+    
+    cout << "Sum: ";
+    print(sum);
+    
+    return 0;
+}    */
+
+
+
+
+
+//1. basic of strings
+/*
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void reverse(char name[], int n) {
+    int s = 0;
+    int e = n - 1;
+    while (s <= e) {
+        swap(name[s++], name[e--]);
+    }
+}
+
+int getlength(const char name[]) {
+    int count = 0;
+    for (int i = 0; name[i] != '\0'; i++) {
+        count++;
+    }
+    return count;
+}
+
+int main() {
+    char name[100]; // Increased size to handle larger input
+    cout << "Enter your name: ";
+    cin >> name;
+    cout << "Your name is: " << name << endl;
+    
+    int len = getlength(name);
+    cout << "Length of your name is: " << len << endl;
+    
+    reverse(name, len);
+    cout << "Your reversed name is: " << name << endl; // Print the reversed name
+    
+    return 0;
+}
+*/
+
+
+
+//2. string is palindrom or not
+/*
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+bool palindrom(char name[], int n){
+    int s=0;
+    int e=n-1;
+    
+    while(s<=e){
+        if(name[s] != name[e]){
+            return false;
+        }
+        else{
+            s++;
+            e--;
+        }
+    }
+    return true;
+}
+
+int getlength(char name[]) {
+    int count = 0;
+    for (int i = 0; name[i] != '\0'; i++) {
+        count++;
+    }
+    return count;
+}
+
+int main() {
+    char name[100]; // Increased size to handle larger input
+    cout << "Enter your name: ";
+    cin >> name;
+    
+    cout << "Your name is: " << name << endl;
+    
+    int len = getlength(name);
+    cout << "Length of your name is: " << len << endl;
+    
+    bool isPalindrome = palindrom(name, len);
+    cout << "Palindrome or not: " << (isPalindrome ? "Yes" : "No") << endl;
+    
+    return 0;
+}    */
+
+
+
+
+//2. string is palindrom or not
+/*
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+bool valid(char ch) {
+        if( (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9')) {
+            return 1;
+        }
+        
+        return 0;
+    }
+    
+    char toLowerCase(char ch) {
+    if( (ch >='a' && ch <='z') || (ch >='0' && ch <='9') )
+        return ch;
+    else{
+        char temp = ch - 'A' + 'a';
+        return temp;
+    }
+}
+
+bool checkPalindrome(string a) {
+    int s = 0;
+    int e = a.length()-1;
+
+    while(s<=e) {
+        if(a[s] != a[e])
+        {
+            return 0;       
+        }
+        else{
+            s++;
+            e--;
+        }
+    }
+    return 1;
+
+}
+
+bool isPalindrome(string s) {
+        
+        //faltu character hatado
+        string temp = "";
+        
+        for(int j=0; j<s.length(); j++) {   
+            if(valid(s[j])) {
+                temp.push_back(s[j]);
+            }
+        }
+        
+        //lowercase me kardo
+        for(int j=0; j<temp.length(); j++) { 
+            temp[j] = toLowerCase(temp[j]);
+        }
+        
+        //check palindrome
+        return checkPalindrome(temp);
+        
+}
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s); // Using getline to allow input with spaces
+    
+    bool result = isPalindrome(s);
+    cout << "Palindrome or not: " << (result ? "Yes" : "No") << endl;
+
+    return 0;
+}    */
+
+
+
+
+//3. replace spaces
+/*
+#include <string>
+#include <iostream>
+using namespace std;
+
+// Function to replace spaces with "@40" in the given string
+string replaceSpaces(string &str) {
+    string temp = ""; // Temporary string to store the result
+    
+    // Iterate over each character in the input string
+    for (int i = 0; i < str.length(); i++) {
+        // If the current character is a space
+        if (str[i] == ' ') {
+            // Add the characters '@', '4', and '0' to the temporary string
+            temp.push_back('@');
+            temp.push_back('4');
+            temp.push_back('0');
+        }
+        else {
+            // If the current character is not a space, add it to the temporary string
+            temp.push_back(str[i]);
+        }
+    }
+    // Return the modified string
+    return temp;
+}
+
+
+int main() {
+    // Input string
+    string input;
+    cout << "Enter a string with spaces: ";
+    getline(cin, input); // Using getline to allow input with spaces
+    
+    // Call the function to replace spaces
+    string result = replaceSpaces(input);
+    
+    // Output the result
+    cout << "String after replacing spaces: " << result << endl;
+    
+    return 0;
+}    */
+
+
+
+
+//4. string is permutations or not
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool arePermutations(string str1, string str2) {
+    // If lengths of both strings are not same, they cannot be permutations
+    if (str1.length() != str2.length()) {
+        return false;
+    }
+
+    // Create two count arrays and initialize all values to 0
+    int count1[256] = {0}; // Assuming ASCII character set
+    int count2[256] = {0};
+
+    // Increment count in respective count arrays
+    for (int i = 0; i < str1.length(); i++) {
+        count1[str1[i]]++;
+        count2[str2[i]]++;
+    }
+
+    // Compare count arrays
+    for (int i = 0; i < 256; i++) {
+        if (count1[i] != count2[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    string str1, str2;
+    cout << "Enter the first string: ";
+    cin >> str1;
+    cout << "Enter the second string: ";
+    cin >> str2;
+
+    if (arePermutations(str1, str2)) {
+        cout << "The strings are permutations of each other." << endl;
+    } else {
+        cout << "The strings are not permutations of each other." << endl;
+    }
+
+    return 0;
+}
+   */

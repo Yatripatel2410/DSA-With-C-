@@ -1,0 +1,220 @@
+//2. colom wise sum 
+/*
+#include <iostream>
+using namespace std;
+
+//to print row wise sum
+void printColSum(int arr[][3], int row, int col) {
+    cout << "Printing Sum -> " << endl;
+    for(int col=0; col<3; col++) {
+        int sum = 0;
+        for(int row=0; row<3; row++) {
+            sum += arr[row][col];
+        }
+        cout << sum << " ";
+    }
+
+    cout << endl;
+}
+
+int main()
+{
+    
+    int arr[3][3];
+    cout<<"Enter the elements: "<<endl;
+    
+    for(int row=0; row<3; row++){
+        for(int col=0; col<3; col++){
+            cin>>arr[row][col];
+        }
+    }
+    
+    printColSum(arr, 3, 3);
+    
+    return 0;
+}    */
+
+
+
+
+
+//2.  largest Row Sum
+/*
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int largestRowSum(int arr[][3], int row, int col) {
+
+    int maxi = INT_MIN;
+    int rowIndex = -1;
+
+    for(int row=0; row<3; row++) {
+        int sum = 0;
+        for(int col=0; col<3; col++) {
+            sum += arr[row][col];
+        }
+
+        if(sum > maxi ) {
+            maxi = sum;
+            rowIndex = row;
+        }
+       
+    }
+
+    cout << "the maximum sum is " << maxi << endl;
+    return rowIndex;
+}
+
+
+int main()
+{
+    
+    int arr[3][3];
+    cout<<"Enter the elements: "<<endl;
+    
+    for(int row=0; row<3; row++){
+        for(int col=0; col<3; col++){
+            cin>>arr[row][col];
+        }
+    }
+    
+    int ansIndex = largestRowSum(arr,3,3);
+    cout << " Max row is at index " << ansIndex << endl;
+
+    
+    return 0;
+}    */
+
+
+
+
+//3. wavePrint
+/*
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> wavePrint(vector<vector<int>> arr, int nRows, int mCols) {
+    vector<int> ans;
+    
+    for(int col = 0; col < mCols; col++) {
+        if(col & 1) {
+            // Odd index -> Bottom to top
+            for(int row = nRows - 1; row >= 0; row--) {
+                ans.push_back(arr[row][col]);
+            }    
+        } else {
+            // Even index -> Top to bottom
+            for(int row = 0; row < nRows; row++) {
+                ans.push_back(arr[row][col]);
+            }
+        }   
+    }
+    return ans;
+}
+
+int main() {
+    int nRows, mCols;
+    cout << "Enter the number of rows: ";
+    cin >> nRows;
+    cout << "Enter the number of columns: ";
+    cin >> mCols;
+
+    vector<vector<int>> arr(nRows, vector<int>(mCols));
+
+    cout << "Enter the elements of the array:" << endl;
+    for(int row = 0; row < nRows; row++) {
+        for(int col = 0; col < mCols; col++) {
+            cin >> arr[row][col];
+        }
+    }
+
+    vector<int> result = wavePrint(arr, nRows, mCols);
+
+    cout << "Wave print of the array:" << endl;
+    for(int val : result) {
+        cout << val << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+*/
+
+
+
+
+//4. spiral matrix
+
+#include <iostream>
+#include <vector>
+using namespace std;
+/*
+vector<int> spiralOrder(vector<vector<int>>& matrix) {
+    vector<int> result;
+    if(matrix.empty()) return result;
+    
+    int top = 0, bottom = matrix.size() - 1;
+    int left = 0, right = matrix[0].size() - 1;
+
+    while(top <= bottom && left <= right) {
+        // Traverse from left to right
+        for(int i = left; i <= right; ++i) {
+            result.push_back(matrix[top][i]);
+        }
+        ++top;
+
+        // Traverse from top to bottom
+        for(int i = top; i <= bottom; ++i) {
+            result.push_back(matrix[i][right]);
+        }
+        --right;
+
+        if(top <= bottom) {
+            // Traverse from right to left
+            for(int i = right; i >= left; --i) {
+                result.push_back(matrix[bottom][i]);
+            }
+            --bottom;
+        }
+
+        if(left <= right) {
+            // Traverse from bottom to top
+            for(int i = bottom; i >= top; --i) {
+                result.push_back(matrix[i][left]);
+            }
+            ++left;
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    int nRows, mCols;
+    cout << "Enter the number of rows: ";
+    cin >> nRows;
+    cout << "Enter the number of columns: ";
+    cin >> mCols;
+
+    vector<vector<int>> matrix(nRows, vector<int>(mCols));
+
+    cout << "Enter the elements of the matrix:" << endl;
+    for(int row = 0; row < nRows; row++) {
+        for(int col = 0; col < mCols; col++) {
+            cin >> matrix[row][col];
+        }
+    }
+
+    vector<int> result = spiralOrder(matrix);
+
+    cout << "Spiral order of the matrix:" << endl;
+    for(int val : result) {
+        cout << val << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+*/

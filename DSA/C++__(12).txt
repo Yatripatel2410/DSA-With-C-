@@ -1,0 +1,157 @@
+//1. factorial with recursion 
+/*
+#include <iostream>
+using namespace std;
+
+int factorial(int n){
+    //base case
+    if(n==0){
+        return 1;
+    }
+    
+    int small=factorial(n-1);
+    int big = n*small;
+    
+    return big;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    
+    int ans=factorial(n);
+    cout<<ans<<endl;
+
+    return 0;
+}    */
+
+
+
+//2. factorial with recursion 
+/*
+#include <iostream>
+using namespace std;
+
+int power(int n){
+    //base case
+    if(n==0){
+        return 1;
+    }
+    
+    // recursive relation
+    int small=power(n-1);
+    int big=2*small;
+    
+    return big;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    
+    int ans=power(n);
+    cout<<ans<<endl;
+
+    return 0;
+}    */
+
+
+//2. recursion
+/*
+#include <iostream>
+using namespace std;
+
+void reachhome(int src, int dest){
+    
+    cout<<"source: "<<src<<", destination: "<<dest<<endl;
+    
+    //base case
+    if(src==dest){
+        cout<<"Pahoch gaye...!"<<endl;
+        return ;
+    }
+    
+    //processing  - ek step aage badhayenge
+    src++;
+    
+    //recursive call
+    reachhome(src, dest);
+    
+}
+
+int main()
+{
+    int dest=10;
+    int src=1;
+    
+    reachhome(src, dest);
+
+    return 0;
+}   */
+
+
+
+//3. fibonachi series
+/*
+#include <iostream>
+using namespace std;
+
+int fibonacci(int n) { // changed return type to int
+    // base case
+    if (n == 0) {
+        return 0;
+    }
+    if (n == 1) {
+        return 1;
+    }
+    
+    return (fibonacci(n-1) + fibonacci(n-2));
+}
+
+int main() {
+    int n, i = 0;
+    cout << "Enter a number: " << endl;
+    cin >> n;
+    cout << "Fibonacci sequence up to " << n << ":" << endl;
+    while (i <= n) { // changed condition to i <= n
+        cout << fibonacci(i) << " ";
+        i++;
+    }
+    cout << endl; // added newline at the end
+    return 0;
+}   */
+
+
+
+//4. count distinct way to climb stair
+/*
+#include <iostream>
+using namespace std;
+
+int CountDistinctWayToClimbStair(long long nStairs){
+    //base case
+    if(nStairs < 0){
+        return 0;
+    }
+    if(nStairs == 0){
+        return 1;
+    }
+    
+    //recursive call
+    int ans = CountDistinctWayToClimbStair(nStairs-1) + CountDistinctWayToClimbStair(nStairs-2);
+    return ans;
+}
+
+int main() {
+    int n, i = 0;
+    cout << "Enter a number: " << endl;
+    cin >> n;
+    cout<<"Ans is: "<<CountDistinctWayToClimbStair(n);
+    cout << endl; // added newline at the end
+    return 0;
+}
+*/
+
+

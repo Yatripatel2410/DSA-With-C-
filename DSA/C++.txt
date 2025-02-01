@@ -1,0 +1,204 @@
+// 1) check given number is character or number or special symbol...
+/*  #include <iostream>
+using namespace std;
+int main()
+{
+    char ch;
+    ch=cin.get();
+    
+    if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')){
+        cout<<"Given character is Alphabets"<<endl;
+    }
+    else if(ch >= '0' && ch <= '9'){
+        cout<<"it's number"<<endl;
+    }
+    else{
+        cout<<"it's special symbol"<<endl;
+    }
+}   */
+
+
+
+
+
+// 2.pyramid triangle
+/*
+Enter the Number of rows - 6
+Pascal's Triangle of 6 rows.
+            1   
+          1 2 1   
+        1 2  3 1   
+      1 2  3  2  1   
+    1  2 3 4 3 2   1   
+ */
+
+/*
+#include <iostream>
+using namespace std;
+int main()
+{   
+    int n;
+    cin>>n;
+    
+    int i=1;
+    while(i<=n){
+        
+        //print 1st space triangle
+        int s= n-i;
+            while(s){
+                cout<<" ";
+                s=s-1;
+            }
+            // print 2st triangle
+            int j=1;
+            while(j<=i){
+              cout<<j;
+                j++;   
+            }
+            
+            // print 3nd triangle
+            int k=i-1;
+            while(k){
+                cout<<k;
+                k--;
+            }
+            
+        cout<<endl;
+        i++;
+    }   
+  
+}
+*/
+
+
+
+
+
+
+// 3. hourglass type
+/*
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n=5;
+    for(int i=1; i<=n ; ++i){
+        
+        // 1st triangle
+        for(int j=1 ; j<=n-i+1 ; ++j){
+            cout<<j<<" ";
+        }
+        
+        // 2nd ttiangel (star vala)
+        for(int j=1 ; j<=(2*(i-1)) ; ++j){
+            cout<<"* ";
+        }
+        
+        // 3rd triangle
+         for(int j=n-i+1 ; j>=1 ; --j){
+            cout<<j<<" ";
+        } 
+        cout<<endl;
+    }
+    return 0;
+}
+*/
+
+
+
+
+
+
+
+// 4. prime or not
+/*
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int n;
+    cout<<"Enter the value of n: ";
+    cin>>n;
+    
+    bool isPrime = 1;
+    
+    for(int i=2; i<n ; i++){
+        if(n%i==0){
+            //cout<<"not prime"<<endl;
+            isPrime=0;
+            break;
+        }
+    }
+    if(isPrime==0){
+        cout<<"not a prime num"<<endl;
+    }
+    else{
+        cout<<"prime"<<endl;
+    }
+}
+*/
+
+
+
+
+
+
+//5. dec to binary conversion
+/*
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main(){
+    
+    int n;
+    cin>>n;
+    
+    int ans = 0;
+    int i =0;
+    
+    while(n != 0){
+        int bit = n & 1;
+        ans = (bit * pow(10, i)) + ans;
+        n = n>>1;
+        i++;
+    }
+    cout<<"Answer is:"<< ans << endl;
+    
+}
+*/
+
+
+
+
+
+
+
+//6. binary to dec
+/*
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main(){
+    
+    int n;
+    cin>>n;
+    
+    int ans = 0;
+    int i =0;
+    
+    while(n != 0){
+        int digit = n % 10;
+        
+        if(digit == 1){
+             ans = pow(2, i) + ans;
+        }
+        
+        n = n/10;
+        i++;
+    }
+    cout<<"Answer is:"<< ans << endl;
+    
+}
+*/
