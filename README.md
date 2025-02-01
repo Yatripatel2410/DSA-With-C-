@@ -1,2 +1,2 @@
-# DSA-With-C-
+# DSA
 DSA LeetCode Questions With C++
